@@ -1,0 +1,110 @@
+{
+  "trip": {
+    "id": "khaoyai-dec69",
+    "title": "เขาใหญ่กับเดอะแก๊งค์",
+    "date": "เสาร์ 12 ธ.ค. 69",
+    "priceNote": "ราคาคืนวันเสาร์ 12 ธ.ค. เช็คเมื่อ 2 พ.ย. 69",
+    "defaultPeople": 15
+  },
+  "villas": [
+    {
+      "id": "CITY-1294",
+      "nickname": "สายคุ้ม",
+      "name": "CITY-1294",
+      "url": "https://poolvillacity.co.th/CITY-1294",
+      "price": 20900,
+      "basePeople": 16,
+      "maxPeople": 24,
+      "extraPerPerson": 500,
+      "bedrooms": 6,
+      "bathrooms": 7,
+      "status": "ว่าง",
+      "photos": [
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/ab950491-a412-4839-9959-ad02dc809c0d_1765436067000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/41740511-0542-462e-8595-8a00e1d238ec_1765436067000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/f18e3da4-681b-4cfe-a0d7-b8bd837dec4e_1765436067000.webp"
+      ],
+      "highlights": [
+        "ห้องนอนมีอ่างชมวิว 3 ห้อง",
+        "สระ 7x4 ม. มีสไลเดอร์ + โต๊ะพูล",
+        "ฟรีน้ำแข็ง ถ่าน น้ำดื่ม กาแฟ",
+        "ใกล้ Premium Outlet และฟาร์มโชคชัย"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "HB-237",
+      "nickname": "สายสวย นอร์ดิก",
+      "name": "HB-237",
+      "url": "https://poolvillacity.co.th/HB-237",
+      "price": 19900,
+      "basePeople": 15,
+      "maxPeople": 21,
+      "extraPerPerson": 500,
+      "bedrooms": 4,
+      "bathrooms": 5,
+      "status": "ว่าง",
+      "photos": [
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/c8205ba5-8c8d-4477-81f2-28abd1104d53_1788086987974.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/cadd2b8f-ddc8-466a-a378-bac8b4e45145_1788086987986.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/fc0d9c60-dee8-4398-a927-b83eb686313a_1788086988010.webp"
+      ],
+      "highlights": [
+        "สระน้ำเกลือ 4x12 ม. สไลเดอร์ยาว 16 ม.",
+        "มีดาดฟ้า บ้าน 2 ชั้น 550 ตร.ม.",
+        "Nintendo Switch บอร์ดเกม คาราโอเกะ JBL",
+        "TV 75 นิ้ว และ Smart TV ทุกห้องนอน"
+      ],
+      "warnings": ["จองแล้วยกเลิก คืนเงิน หรือลดจำนวนคนไม่ได้"]
+    },
+    {
+      "id": "HB-183",
+      "nickname": "สายปาร์ตี้",
+      "name": "HB-183",
+      "url": "https://poolvillacity.co.th/HB-183",
+      "price": 24000,
+      "basePeople": 15,
+      "maxPeople": 40,
+      "extraPerPerson": 500,
+      "bedrooms": 6,
+      "bathrooms": 7,
+      "status": "ว่าง",
+      "photos": [
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/0175f2d2-b1d8-4d61-9d13-93008bf8aedf_1787980735983.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/c5901c88-8f4f-4ee9-93c9-efe66e9f2195_1787980735955.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/bec66af6-e389-40ad-bf8b-05206e51a262_1787980735976.webp"
+      ],
+      "highlights": [
+        "สระน้ำเกลือ 8x10 ม. จากุซซี่ สไลเดอร์",
+        "ฟรีรถ ATV ขับได้ถึงเช็คเอาท์",
+        "ตู้เกม Arcade โต๊ะพูล โต๊ะบอล แอร์ฮอกกี้",
+        "เปิดเพลงได้ 24 ชม. ฟรีข้าวต้มเช้า"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "MONTENEO-B",
+      "nickname": "สายวิวภูเขา",
+      "name": "Monteneo Zone B",
+      "url": "https://www.besthavenkhaoyai.com/Monteneo_Und_Pool_Villa_Khao_Yai_-_Zone_B/6457eeca3108c2001a89064f",
+      "price": 25900,
+      "basePeople": 16,
+      "maxPeople": 25,
+      "extraPerPerson": 600,
+      "bedrooms": 7,
+      "bathrooms": 8,
+      "status": "ยังไม่ได้เช็คคิว",
+      "photos": [
+        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/0/0/1759845cusdaqd1427694892532z-z149659297212.jpg",
+        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/1521/0/1759845cuswrrg886619817485z-z1268547597115.jpg"
+      ],
+      "highlights": [
+        "เหมา 2 หลัง บนเนินเขา วิวภูเขา 180°",
+        "สระน้ำเกลือ จากุซซี่ สระเด็ก สไลเดอร์",
+        "แต่งสไตล์คาเฟ่ มุมถ่ายรูปเยอะ",
+        "คาราโอเกะ JBL โต๊ะพูล ฟรีอาหารเช้า"
+      ],
+      "warnings": ["งดเสียงดังนอกบ้านหลัง 22:00", "ห่างอุทยานฯ 28 กม."]
+    }
+  ]
+}

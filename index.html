@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>เลือกบ้านเขาใหญ่ | เดอะแก๊งค์</title>
+<meta property="og:title" content="เลือกบ้านพูลวิลล่าเขาใหญ่ เข้ามาโหวตกัน">
+<meta property="og:description" content="ดูบ้าน เทียบราคาหารต่อคน แล้วโหวตได้หลายหลัง">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=Anuphan:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --mist: #EDF1EC;
+  --paper: #FFFFFF;
+  --ink: #15231C;
+  --moss: #5B6F61;
+  --line: #D3DCD5;
+  --pool: #0C8A8A;
+  --pool-soft: #D5EEEC;
+  --sun: #F4C430;
+  --sun-soft: #FCF1CC;
+  --on-pool: #FFFFFF;
+  --display: "Mitr", "Noto Sans Thai", "Leelawadee UI", sans-serif;
+  --body: "Anuphan", "Noto Sans Thai", "Leelawadee UI", sans-serif;
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --mist: #0F1713;
+    --paper: #17221C;
+    --ink: #E6EEE8;
+    --moss: #9AAEA0;
+    --line: #2A3A31;
+    --pool: #39C2BE;
+    --pool-soft: #173A37;
+    --sun: #F4C430;
+    --sun-soft: #3A3218;
+    --on-pool: #0F1713;
+    color-scheme: dark;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body {
+  margin: 0;
+  background: var(--mist);
+  color: var(--ink);
+  font: 400 16px/1.65 var(--body);
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+}
+img { max-width: 100%; display: block; }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--pool); outline-offset: 2px; }
+
+.wrap { max-width: 640px; margin: 0 auto; padding: 0 18px; }
+
+/* Hero */
+.hero { padding-top: 40px; padding-bottom: 8px; }
+.hero h1 {
+  font: 600 clamp(2.1rem, 9vw, 3.1rem)/1.12 var(--display);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.hero .date {
+  display: inline-block;
+  margin-top: 12px;
+  font: 500 1.05rem/1 var(--display);
+  background: var(--sun);
+  color: #15231C;
+  padding: 8px 12px 9px;
+  border-radius: 6px;
+}
+.hero p { color: var(--moss); margin: 16px 0 0; max-width: 34em; }
+
+/* People stepper */
+.people {
+  margin-top: 22px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 12px 12px 16px;
+}
+.people label { font-weight: 500; }
+.people small { display: block; color: var(--moss); font-size: .85rem; }
+.stepper { display: flex; align-items: center; gap: 4px; }
+.stepper button {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--mist);
+  font-size: 1.4rem; line-height: 1; cursor: pointer;
+}
+.stepper output { min-width: 2.4ch; text-align: center; font: 600 1.5rem/1 var(--display); }
+
+/* Results */
+.results { margin-top: 28px; }
+.results h2, .villas-head {
+  font: 500 1.25rem/1.3 var(--display);
+  margin: 0 0 10px;
+}
+.results-empty { color: var(--moss); margin: 0; }
+.bar-row { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; margin-bottom: 12px; }
+.bar-row .label { font-weight: 500; }
+.bar-row .count { font: 600 1rem/1.6 var(--display); }
+.bar {
+  grid-column: 1 / -1;
+  height: 10px; border-radius: 5px; background: var(--line); overflow: hidden;
+}
+.bar span { display: block; height: 100%; background: var(--pool); border-radius: 5px; transition: width .5s ease; }
+.bar-row.lead .bar span { background: var(--sun); }
+.voters { grid-column: 1 / -1; color: var(--moss); font-size: .85rem; }
+
+/* Villa card */
+.villas { margin-top: 32px; }
+.villa {
+  background: var(--paper);
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 22px;
+  border: 2px solid transparent;
+  transition: border-color .2s;
+}
+.villa.picked { border-color: var(--pool); }
+.photos {
+  display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+  aspect-ratio: 4 / 3; background: var(--line);
+  scrollbar-width: none;
+}
+.photos::-webkit-scrollbar { display: none; }
+.photos img {
+  flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: start;
+}
+.photo-fallback {
+  flex: 0 0 100%; display: grid; place-items: center;
+  font: 500 1.4rem var(--display); color: var(--moss);
+}
+.photo-wrap { position: relative; }
+.photo-count {
+  position: absolute; right: 10px; bottom: 10px;
+  background: rgba(0,0,0,.55); color: #fff; font-size: .8rem;
+  padding: 2px 9px; border-radius: 99px; pointer-events: none;
+}
+.villa-body { padding: 16px 18px 18px; }
+.villa-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.villa h3 { font: 600 1.6rem/1.2 var(--display); margin: 0; }
+.code { color: var(--moss); font-size: .85rem; white-space: nowrap; }
+.status { font-size: .85rem; margin-top: 2px; color: var(--moss); }
+.status.ok::before { content: "● "; color: var(--pool); }
+.status.unknown::before { content: "● "; color: var(--sun); }
+
+.price { margin: 14px 0 4px; display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+.price strong { font: 600 2.2rem/1 var(--display); }
+.price .per { font-weight: 500; }
+.price-sub { color: var(--moss); font-size: .9rem; margin: 0; }
+.over { color: #B4441F; font-weight: 500; }
+@media (prefers-color-scheme: dark) { .over { color: #F08A65; } }
+
+.facts { display: flex; gap: 18px; margin: 14px 0 0; padding: 0; list-style: none; }
+.facts li { font-size: .95rem; }
+.facts b { font: 600 1.15rem var(--display); margin-right: 3px; }
+
+.highlights { margin: 14px 0 0; padding-left: 1.1em; }
+.highlights li { margin: 2px 0; }
+.warn {
+  margin: 12px 0 0; padding: 10px 12px; border-radius: 10px;
+  background: var(--sun-soft); font-size: .92rem;
+}
+.warn p { margin: 0; }
+.link { display: inline-block; margin-top: 12px; color: var(--pool); font-weight: 500; }
+
+.card-voters { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  font-size: .82rem; padding: 2px 10px; border-radius: 99px;
+  background: var(--pool-soft); color: var(--ink);
+}
+
+.pick {
+  margin-top: 16px; width: 100%; min-height: 52px;
+  border-radius: 12px; border: 2px solid var(--pool);
+  background: transparent; color: var(--pool);
+  font: 500 1.05rem var(--display); cursor: pointer;
+}
+.villa.picked .pick { background: var(--pool); color: var(--on-pool); }
+
+/* Bottom bar */
+.dock {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  padding: 12px 0 calc(12px + env(safe-area-inset-bottom, 0px));
+}
+.dock .wrap { display: flex; gap: 10px; }
+.dock input {
+  flex: 1; min-width: 0; height: 50px; padding: 0 14px;
+  border-radius: 12px; border: 1px solid var(--line); background: var(--mist);
+}
+.dock button {
+  height: 50px; padding: 0 18px; border-radius: 12px; border: 0;
+  background: var(--ink); color: var(--mist);
+  font: 500 1rem var(--display); white-space: nowrap; cursor: pointer;
+}
+.dock button:disabled { opacity: .45; cursor: default; }
+
+.toast {
+  position: fixed; left: 50%; bottom: calc(90px + env(safe-area-inset-bottom, 0px));
+  transform: translate(-50%, 12px); opacity: 0;
+  background: var(--ink); color: var(--mist);
+  padding: 10px 16px; border-radius: 10px; font-size: .95rem;
+  transition: opacity .25s, transform .25s; pointer-events: none; z-index: 20;
+  max-width: calc(100% - 36px);
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="wrap hero">
+  <h1 id="title">เขาใหญ่กับเดอะแก๊งค์</h1>
+  <span class="date" id="date"></span>
+  <p>ดูบ้านทุกหลังแล้วกดเลือกหลังที่โอเค เลือกได้มากกว่า 1 หลัง ใส่ชื่อเล่นแล้วกดส่งโหวต เปลี่ยนใจทีหลังได้ด้วยชื่อเดิม</p>
+
+  <div class="people">
+    <div>
+      <label for="peopleOut">ไปกันกี่คน</label>
+      <small>ราคาต่อคนจะคำนวณใหม่ตามนี้</small>
+    </div>
+    <div class="stepper">
+      <button type="button" id="minus" aria-label="ลดจำนวนคน">−</button>
+      <output id="peopleOut" aria-live="polite">15</output>
+      <button type="button" id="plus" aria-label="เพิ่มจำนวนคน">+</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="results" aria-labelledby="resultsHead">
+    <h2 id="resultsHead">ผลโหวตตอนนี้</h2>
+    <div id="results"><p class="results-empty">กำลังโหลด…</p></div>
+  </section>
+
+  <section class="villas">
+    <h2 class="villas-head" id="villasHead"></h2>
+    <div id="villaList"></div>
+  </section>
+
+  <footer id="note"></footer>
+</main>
+
+<div class="dock">
+  <div class="wrap">
+    <input id="name" type="text" maxlength="30" placeholder="ชื่อเล่นของคุณ" autocomplete="nickname" aria-label="ชื่อเล่น">
+    <button type="button" id="submit" disabled>ส่งโหวต</button>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const fmt = (n) => n.toLocaleString("th-TH");
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+  };
+
+  let data, votes = [], picks = new Set(), people = 15, dirty = false;
+
+  function perPerson(v, n) {
+    const total = v.price + Math.max(0, n - v.basePeople) * v.extraPerPerson;
+    return { total, per: Math.ceil(total / n / 10) * 10, over: n > v.maxPeople };
+  }
+
+  function toast(msg) {
+    const t = $("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(toast.timer);
+    toast.timer = setTimeout(() => t.classList.remove("show"), 2600);
+  }
+
+  function votersFor(id) {
+    return votes.filter((v) => v.picks.includes(id)).map((v) => v.name);
+  }
+
+  function renderResults() {
+    const box = $("results");
+    if (!votes.length) {
+      box.innerHTML = '<p class="results-empty">ยังไม่มีใครโหวต เป็นคนแรกเลย</p>';
+      return;
+    }
+    const rows = data.villas
+      .map((v) => ({ v, names: votersFor(v.id) }))
+      .sort((a, b) => b.names.length - a.names.length);
+    const top = rows[0].names.length;
+    box.innerHTML = rows.map(({ v, names }) => `
+      <div class="bar-row${names.length && names.length === top ? " lead" : ""}">
+        <span class="label">${esc(v.nickname)}</span>
+        <span class="count">${names.length} เสียง</span>
+        <div class="bar"><span style="width:${(names.length / votes.length) * 100}%"></span></div>
+        ${names.length ? `<span class="voters">${names.map(esc).join(", ")}</span>` : ""}
+      </div>`).join("") +
+      `<p class="results-empty">โหวตแล้ว ${votes.length} คน</p>`;
+  }
+
+  function cardHTML(v) {
+    const p = perPerson(v, people);
+    const photos = (v.photos || []).map((src, i) =>
+      `<img src="${esc(src)}" alt="${esc(v.nickname)} รูปที่ ${i + 1}" loading="lazy" referrerpolicy="no-referrer">`).join("");
+    const known = v.status === "ว่าง";
+    return `
+      <article class="villa${picks.has(v.id) ? " picked" : ""}" data-id="${esc(v.id)}">
+        <div class="photo-wrap">
+          <div class="photos">${photos || `<div class="photo-fallback">${esc(v.nickname)}</div>`}</div>
+          ${v.photos && v.photos.length > 1 ? `<span class="photo-count">ปัดดู ${v.photos.length} รูป</span>` : ""}
+        </div>
+        <div class="villa-body">
+          <div class="villa-top">
+            <h3>${esc(v.nickname)}</h3>
+            <span class="code">${esc(v.name)}</span>
+          </div>
+          <div class="status ${known ? "ok" : "unknown"}">${esc(v.status || "")}</div>
+          <div class="price">
+            <strong>฿${fmt(p.per)}</strong><span class="per">ต่อคน</span>
+          </div>
+          <p class="price-sub">${p.over
+            ? `<span class="over">รับได้สูงสุด ${v.maxPeople} คน เกินไป ${people - v.maxPeople} คน</span>`
+            : `รวม ฿${fmt(p.total)} สำหรับ ${people} คน<br>ราคานี้รวม ${v.basePeople} คน เกินเพิ่มคนละ ${fmt(v.extraPerPerson)}`}</p>
+          <ul class="facts">
+            <li><b>${v.bedrooms}</b>ห้องนอน</li>
+            <li><b>${v.bathrooms}</b>ห้องน้ำ</li>
+            <li><b>${v.maxPeople}</b>คนสูงสุด</li>
+          </ul>
+          <ul class="highlights">${v.highlights.map((h) => `<li>${esc(h)}</li>`).join("")}</ul>
+          ${v.warnings && v.warnings.length ? `<div class="warn">${v.warnings.map((w) => `<p>⚠️ ${esc(w)}</p>`).join("")}</div>` : ""}
+          <a class="link" href="${esc(v.url)}" target="_blank" rel="noopener">ดูรายละเอียดบนเว็บที่พัก</a>
+          <div class="card-voters">${votersFor(v.id).map((n) => `<span class="chip">${esc(n)}</span>`).join("")}</div>
+          <button type="button" class="pick" aria-pressed="${picks.has(v.id)}">${picks.has(v.id) ? "เลือกหลังนี้แล้ว ✓" : "เลือกหลังนี้"}</button>
+        </div>
+      </article>`;
+  }
+
+  function renderVillas() {
+    $("villaList").innerHTML = data.villas.map(cardHTML).join("");
+    $("villaList").querySelectorAll(".villa").forEach(attachCard);
+  }
+
+  function attachCard(card) {
+    const id = card.dataset.id;
+    card.querySelector(".pick").addEventListener("click", () => {
+      picks.has(id) ? picks.delete(id) : picks.add(id);
+      dirty = true;
+      syncCards();
+      updateDock();
+    });
+    card.querySelectorAll(".photos img").forEach((img) => {
+      img.addEventListener("error", () => {
+        const strip = img.parentElement;
+        img.remove();
+        if (!strip.querySelector("img")) {
+          strip.innerHTML = `<div class="photo-fallback">${esc(card.querySelector("h3").textContent)}</div>`;
+          card.querySelector(".photo-count")?.remove();
+        }
+      }, { once: true });
+    });
+  }
+
+  function updateDock() {
+    const name = $("name").value.trim();
+    const btn = $("submit");
+    btn.disabled = !name || !dirty;
+    btn.textContent = picks.size ? `ส่งโหวต (${picks.size})` : "ส่งโหวต";
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  }
+
+  function syncCards() {
+    document.querySelectorAll(".villa").forEach((card) => {
+      const id = card.dataset.id, on = picks.has(id);
+      card.classList.toggle("picked", on);
+      const btn = card.querySelector(".pick");
+      btn.setAttribute("aria-pressed", on);
+      btn.textContent = on ? "เลือกหลังนี้แล้ว ✓" : "เลือกหลังนี้";
+      card.querySelector(".card-voters").innerHTML =
+        votersFor(id).map((n) => `<span class="chip">${esc(n)}</span>`).join("");
+    });
+  }
+
+  async function loadVotes(applyMine = false) {
+    try {
+      const r = await fetch(`/api/votes?trip=${encodeURIComponent(data.trip.id)}`, { cache: "no-store" });
+      if (!r.ok) throw new Error();
+      votes = (await r.json()).votes || [];
+      if (applyMine) {
+        const me = $("name").value.trim().toLowerCase();
+        const mine = votes.find((v) => v.name.toLowerCase() === me);
+        if (mine) { picks = new Set(mine.picks); dirty = false; }
+      }
+      renderResults();
+      syncCards();
+      updateDock();
+    } catch {
+      $("results").innerHTML = '<p class="results-empty">โหลดผลโหวตไม่ได้ ลองรีเฟรชหน้าอีกครั้ง</p>';
+    }
+  }
+
+  async function submit() {
+    const name = $("name").value.trim();
+    if (!name) return;
+    const btn = $("submit");
+    btn.disabled = true;
+    btn.textContent = "กำลังส่ง…";
+    try {
+      const r = await fetch(`/api/votes?trip=${encodeURIComponent(data.trip.id)}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, picks: [...picks] }),
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(j.error || "ส่งโหวตไม่สำเร็จ");
+      store.set("villa-vote-name", name);
+      dirty = false;
+      toast(picks.size ? `ส่งโหวตแล้ว ${picks.size} หลัง ขอบคุณ ${name}` : "ลบโหวตของคุณแล้ว");
+      await loadVotes();
+    } catch (e) {
+      toast(e.message || "ส่งโหวตไม่สำเร็จ ลองอีกครั้ง");
+    } finally {
+      updateDock();
+    }
+  }
+
+  async function init() {
+    data = await (await fetch("villas.json", { cache: "no-store" })).json();
+    $("title").textContent = data.trip.title;
+    $("date").textContent = data.trip.date;
+    $("villasHead").textContent = `บ้านที่เล็งไว้ ${data.villas.length} หลัง`;
+    $("note").textContent = data.trip.priceNote + " ราคาอาจเปลี่ยน เช็คกับที่พักอีกครั้งก่อนโอน";
+    document.title = `เลือกบ้าน ${data.trip.title}`;
+
+    people = Number(store.get("villa-vote-people")) || data.trip.defaultPeople || 15;
+    $("peopleOut").textContent = people;
+    $("name").value = store.get("villa-vote-name") || "";
+
+    const setPeople = (n) => {
+      people = Math.min(60, Math.max(1, n));
+      $("peopleOut").textContent = people;
+      store.set("villa-vote-people", people);
+      renderVillas();
+    };
+    $("minus").addEventListener("click", () => setPeople(people - 1));
+    $("plus").addEventListener("click", () => setPeople(people + 1));
+    $("name").addEventListener("input", updateDock);
+    $("name").addEventListener("change", () => {
+      if (picks.size === 0) loadVotes(true);
+      else { dirty = true; updateDock(); }
+    });
+    $("submit").addEventListener("click", submit);
+
+    renderVillas();
+    updateDock();
+    await loadVotes(true);
+    setInterval(() => { if (!document.hidden) loadVotes(); }, 15000);
+  }
+
+  init().catch(() => {
+    $("villaList").innerHTML = '<p class="results-empty">โหลดรายการบ้านไม่ได้ เช็คไฟล์ villas.json</p>';
+  });
+})();
+</script>
+</body>
+</html>
