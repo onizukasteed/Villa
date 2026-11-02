@@ -143,6 +143,20 @@ button, input { font: inherit; color: inherit; }
   background: rgba(0,0,0,.55); color: #fff; font-size: .8rem;
   padding: 2px 9px; border-radius: 99px; pointer-events: none;
 }
+.photo-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%; border: 0;
+  background: rgba(255,255,255,.92); color: #15231C;
+  font-size: 1.5rem; line-height: 1; cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+  display: none;
+}
+.photo-nav.prev { left: 10px; }
+.photo-nav.next { right: 10px; }
+.photo-nav[hidden] { display: none !important; }
+@media (hover: hover) and (pointer: fine) {
+  .photo-nav { display: grid; place-items: center; }
+}
 .villa-body { padding: 16px 18px 18px; }
 .villa-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
 .villa h3 { font: 600 1.6rem/1.2 var(--display); margin: 0; }
@@ -330,7 +344,10 @@ footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
       <article class="villa${picks.has(v.id) ? " picked" : ""}" data-id="${esc(v.id)}">
         <div class="photo-wrap">
           <div class="photos">${photos || `<div class="photo-fallback">${esc(v.nickname)}</div>`}</div>
-          ${v.photos && v.photos.length > 1 ? `<span class="photo-count">ปัดดู ${v.photos.length} รูป</span>` : ""}
+          ${v.photos && v.photos.length > 1 ? `
+            <button type="button" class="photo-nav prev" aria-label="รูปก่อนหน้า" hidden>‹</button>
+            <button type="button" class="photo-nav next" aria-label="รูปถัดไป">›</button>
+            <span class="photo-count">1/${v.photos.length}</span>` : ""}
         </div>
         <div class="villa-body">
           <div class="villa-top">
@@ -371,13 +388,41 @@ footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
       syncCards();
       updateDock();
     });
+    const strip = card.querySelector(".photos");
+    const prev = card.querySelector(".photo-nav.prev");
+    const next = card.querySelector(".photo-nav.next");
+    const counter = card.querySelector(".photo-count");
+    const updatePhotoUI = () => {
+      const total = strip.querySelectorAll("img").length;
+      const w = strip.clientWidth || 1;
+      const i = Math.round(strip.scrollLeft / w);
+      if (counter) counter.textContent = `${i + 1}/${total}`;
+      if (prev) prev.hidden = i <= 0 || total < 2;
+      if (next) next.hidden = i >= total - 1 || total < 2;
+      if (counter && total < 2) counter.hidden = true;
+    };
+    const go = (dir) => strip.scrollBy({ left: dir * strip.clientWidth, behavior: "smooth" });
+    prev?.addEventListener("click", () => go(-1));
+    next?.addEventListener("click", () => go(1));
+    strip.addEventListener("scroll", () => {
+      clearTimeout(strip._t);
+      strip._t = setTimeout(updatePhotoUI, 60);
+    }, { passive: true });
+    strip.tabIndex = 0;
+    strip.setAttribute("aria-label", "รูปบ้าน ใช้ลูกศรซ้ายขวาเพื่อเลื่อน");
+    strip.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") { e.preventDefault(); go(1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(-1); }
+    });
+
     card.querySelectorAll(".photos img").forEach((img) => {
       img.addEventListener("error", () => {
-        const strip = img.parentElement;
         img.remove();
         if (!strip.querySelector("img")) {
           strip.innerHTML = `<div class="photo-fallback">${esc(card.querySelector("h3").textContent)}</div>`;
-          card.querySelector(".photo-count")?.remove();
+          card.querySelectorAll(".photo-count, .photo-nav").forEach((el) => el.remove());
+        } else {
+          updatePhotoUI();
         }
       }, { once: true });
     });
