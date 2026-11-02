@@ -1,7 +1,7 @@
 {
   "trip": {
     "id": "khaoyai-dec69",
-    "title": "เขาใหญ่กับเดอะแก๊งค์",
+    "title": "เขาใหญ่กับ CG Alumni 🇹🇭 🇨🇳",
     "date": "เสาร์ 12 ธ.ค. 69",
     "priceNote": "ราคาคืนวันเสาร์ 12 ธ.ค. เช็คเมื่อ 2 พ.ย. 69",
     "defaultPeople": 15
@@ -55,7 +55,9 @@
         "Nintendo Switch บอร์ดเกม คาราโอเกะ JBL",
         "TV 75 นิ้ว และ Smart TV ทุกห้องนอน"
       ],
-      "warnings": ["จองแล้วยกเลิก คืนเงิน หรือลดจำนวนคนไม่ได้"]
+      "warnings": [
+        "จองแล้วยกเลิก คืนเงิน หรือลดจำนวนคนไม่ได้"
+      ]
     },
     {
       "id": "HB-183",
@@ -95,8 +97,10 @@
       "bathrooms": 8,
       "status": "ยังไม่ได้เช็คคิว",
       "photos": [
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/0/0/1759845cusdaqd1427694892532z-z149659297212.jpg",
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/1521/0/1759845cuswrrg886619817485z-z1268547597115.jpg"
+        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/1z-z1650810684598.webp",
+        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/1z-z1191728176277.webp",
+        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/2z-z724409258631.webp",
+        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/4z-z219213177297.webp"
       ],
       "highlights": [
         "เหมา 2 หลัง บนเนินเขา วิวภูเขา 180°",
@@ -104,7 +108,78 @@
         "แต่งสไตล์คาเฟ่ มุมถ่ายรูปเยอะ",
         "คาราโอเกะ JBL โต๊ะพูล ฟรีอาหารเช้า"
       ],
-      "warnings": ["งดเสียงดังนอกบ้านหลัง 22:00", "ห่างอุทยานฯ 28 กม."]
+      "warnings": [
+        "งดเสียงดังนอกบ้านหลัง 22:00",
+        "ห่างอุทยานฯ 28 กม."
+      ]
+    },
+    {
+      "id": "VENEZIA",
+      "nickname": "สายยุโรป",
+      "name": "Venezia Villa",
+      "url": "https://www.besthavenkhaoyai.com/Venezia_Und_Villa_Khao_Yai/5f89005cb6b4bd0019bf4333",
+      "price": 20900,
+      "basePeople": 19,
+      "maxPeople": 27,
+      "extraPerPerson": 1000,
+      "tiers": [
+        {
+          "upTo": 19,
+          "price": 20900,
+          "label": "เปิด 5 ห้องนอน"
+        },
+        {
+          "upTo": 25,
+          "price": 25900,
+          "label": "เปิด 6 ห้องนอน"
+        }
+      ],
+      "bedrooms": 6,
+      "bathrooms": 7,
+      "status": "ยังไม่ได้เช็คคิว",
+      "photos": [
+        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/newz-z679955325624.webp",
+        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/newz-z878685385013.webp"
+      ],
+      "highlights": [
+        "สไตล์ทัสคานี มีสะพานเวนิสจำลอง",
+        "สระน้ำอุ่น + จากุซซี่ 2 อ่าง (ชั้นล่างและระเบียง)",
+        "คาราโอเกะ JBL โต๊ะพูล TV 75 นิ้วริมสระ",
+        "ฟรีอาหารเช้า ใกล้ฟาร์มโชคชัย 6.5 กม."
+      ],
+      "warnings": [
+        "สระเล็กกว่าหลังอื่น (3.5x7 ม.)",
+        "มัดจำ 60% งดเสียงดังนอกบ้านหลัง 23:00"
+      ]
+    },
+    {
+      "id": "MARINE",
+      "nickname": "สายสไลเดอร์ยักษ์",
+      "name": "The Marine Villa",
+      "url": "https://www.besthavenkhaoyai.com/The_Marine_Villa_Khao_Yai/5fbce293374db80012ee05fa",
+      "price": 22400,
+      "basePeople": 20,
+      "maxPeople": 28,
+      "extraPerPerson": 500,
+      "bedrooms": 7,
+      "bathrooms": 7,
+      "status": "ยังไม่ได้เช็คคิว",
+      "photos": [
+        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/The-Marine-Villa-Khao-Yai-1z-z637993825625.webp",
+        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/1z-z1178206501664.webp",
+        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/2z-z392760111171.webp",
+        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/3z-z1515282063992.webp"
+      ],
+      "highlights": [
+        "สไลเดอร์ยาว 42 ม.",
+        "สระน้ำเกลือ 6x12 ม. มีมวยทะเล",
+        "คาราโอเกะ โต๊ะสนุ๊ก ฟรีข้าวต้มเช้า",
+        "ราคารวม 20 คน เช็คเอาท์ 12:00"
+      ],
+      "warnings": [
+        "แยกเป็น 5 หลัง ห้องนั่งเล่นและครัวอยู่หลังใหญ่หลังเดียว",
+        "โอนแล้วคืนเงินหรือเปลี่ยนวันไม่ได้"
+      ]
     }
   ]
 }

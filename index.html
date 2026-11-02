@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>เลือกบ้านเขาใหญ่ | เดอะแก๊งค์</title>
+<title>เลือกบ้านเขาใหญ่ | CG Alumni</title>
 <meta property="og:title" content="เลือกบ้านพูลวิลล่าเขาใหญ่ เข้ามาโหวตกัน">
 <meta property="og:description" content="ดูบ้าน เทียบราคาหารต่อคน แล้วโหวตได้หลายหลัง">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -224,7 +224,7 @@ footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
 <body>
 
 <header class="wrap hero">
-  <h1 id="title">เขาใหญ่กับเดอะแก๊งค์</h1>
+  <h1 id="title">เขาใหญ่กับ CG Alumni 🇹🇭 🇨🇳</h1>
   <span class="date" id="date"></span>
   <p>ดูบ้านทุกหลังแล้วกดเลือกหลังที่โอเค เลือกได้มากกว่า 1 หลัง ใส่ชื่อเล่นแล้วกดส่งโหวต เปลี่ยนใจทีหลังได้ด้วยชื่อเดิม</p>
 
@@ -274,9 +274,19 @@ footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
 
   let data, votes = [], picks = new Set(), people = 15, dirty = false;
 
+  // ถ้าบ้านมี tiers (ราคาตามจำนวนห้องที่เปิด) จะเลือกขั้นที่พอดีกับจำนวนคน
+  function priceFor(v, n) {
+    if (v.tiers && v.tiers.length) {
+      const t = v.tiers.find((t) => n <= t.upTo) || v.tiers[v.tiers.length - 1];
+      return { price: t.price, base: t.upTo, label: t.label || "" };
+    }
+    return { price: v.price, base: v.basePeople, label: "" };
+  }
+
   function perPerson(v, n) {
-    const total = v.price + Math.max(0, n - v.basePeople) * v.extraPerPerson;
-    return { total, per: Math.ceil(total / n / 10) * 10, over: n > v.maxPeople };
+    const t = priceFor(v, n);
+    const total = t.price + Math.max(0, n - t.base) * v.extraPerPerson;
+    return { ...t, total, per: Math.ceil(total / n / 10) * 10, over: n > v.maxPeople };
   }
 
   function toast(msg) {
@@ -333,7 +343,7 @@ footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
           </div>
           <p class="price-sub">${p.over
             ? `<span class="over">รับได้สูงสุด ${v.maxPeople} คน เกินไป ${people - v.maxPeople} คน</span>`
-            : `รวม ฿${fmt(p.total)} สำหรับ ${people} คน<br>ราคานี้รวม ${v.basePeople} คน เกินเพิ่มคนละ ${fmt(v.extraPerPerson)}`}</p>
+            : `รวม ฿${fmt(p.total)} สำหรับ ${people} คน<br>${p.label ? p.label + " " : ""}ราคานี้รวม ${p.base} คน เกินเพิ่มคนละ ${fmt(v.extraPerPerson)}`}</p>
           <ul class="facts">
             <li><b>${v.bedrooms}</b>ห้องนอน</li>
             <li><b>${v.bathrooms}</b>ห้องน้ำ</li>
