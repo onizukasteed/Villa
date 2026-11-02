@@ -230,6 +230,67 @@ button, input { font: inherit; color: inherit; }
 
 footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
 
+/* Responsive: desktop uses the width */
+.top { display: block; }
+.villa { display: flex; flex-direction: column; }
+.villa-body { flex: 1; display: flex; flex-direction: column; }
+.pick { margin-top: auto; }
+.card-voters { margin-bottom: 16px; }
+.dock .wrap { max-width: 640px; }
+
+@media (min-width: 900px) {
+  .wrap { max-width: 1180px; padding: 0 32px; }
+  .top {
+    display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 48px; align-items: start; padding-top: 24px;
+  }
+  .top .results {
+    margin-top: 40px;
+    background: var(--paper); border-radius: 18px; padding: 20px 22px 8px;
+  }
+  .villas { margin-top: 48px; }
+  #villaList {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px; align-items: stretch;
+  }
+  .villa { margin-bottom: 0; }
+}
+@media (min-width: 1280px) {
+  .wrap { max-width: 1320px; }
+  #villaList { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Suggestions */
+.suggest {
+  margin-top: 40px; display: grid; gap: 24px;
+  background: var(--paper); border-radius: 18px; padding: 22px 20px;
+}
+.suggest h2 { font: 500 1.25rem/1.3 var(--display); margin: 0; }
+.suggest h3 { font: 500 1.05rem/1.3 var(--display); margin: 0 0 8px; }
+.suggest-form p { color: var(--moss); margin: 6px 0 14px; }
+.suggest-form label { display: block; font-weight: 500; font-size: .92rem; margin: 10px 0 4px; }
+.suggest-form input {
+  width: 100%; height: 48px; padding: 0 14px;
+  border-radius: 12px; border: 1px solid var(--line); background: var(--mist);
+}
+.suggest-form button {
+  margin-top: 14px; min-height: 48px; padding: 0 20px; border-radius: 12px;
+  border: 2px solid var(--pool); background: transparent; color: var(--pool);
+  font: 500 1rem var(--display); cursor: pointer;
+}
+.suggest-form button:disabled { opacity: .5; cursor: default; }
+.suggest-form .sg-hint { font-size: .85rem; margin: 8px 0 0; }
+#sgList { list-style: none; margin: 0; padding: 0; }
+#sgList li:not(.results-empty) { padding: 10px 0; border-top: 1px solid var(--line); }
+#sgList li:first-child { border-top: 0; }
+.sg-text { font-weight: 500; overflow-wrap: anywhere; }
+.sg-text a { color: var(--pool); }
+.sg-note { margin: 2px 0 0; }
+.sg-by { color: var(--moss); font-size: .85rem; }
+@media (min-width: 900px) {
+  .suggest { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; padding: 28px 32px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
@@ -237,33 +298,51 @@ footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
 </head>
 <body>
 
-<header class="wrap hero">
-  <h1 id="title">เขาใหญ่กับ CG Alumni 🇹🇭 🇨🇳</h1>
-  <span class="date" id="date"></span>
-  <p>ดูบ้านทุกหลังแล้วกดเลือกหลังที่โอเค เลือกได้มากกว่า 1 หลัง ใส่ชื่อเล่นแล้วกดส่งโหวต เปลี่ยนใจทีหลังได้ด้วยชื่อเดิม</p>
-
-  <div class="people">
-    <div>
-      <label for="peopleOut">ไปกันกี่คน</label>
-      <small>ราคาต่อคนจะคำนวณใหม่ตามนี้</small>
+<div class="wrap top">
+  <header class="hero">
+    <h1 id="title">เขาใหญ่กับ CG Alumni 🇹🇭 🇨🇳</h1>
+    <span class="date" id="date"></span>
+    <p>ดูบ้านทุกหลังแล้วกดเลือกหลังที่โอเค เลือกได้มากกว่า 1 หลัง ใส่ชื่อเล่นแล้วกดส่งโหวต เปลี่ยนใจทีหลังได้ด้วยชื่อเดิม</p>
+  
+    <div class="people">
+      <div>
+        <label for="peopleOut">ไปกันกี่คน</label>
+        <small>ราคาต่อคนจะคำนวณใหม่ตามนี้</small>
+      </div>
+      <div class="stepper">
+        <button type="button" id="minus" aria-label="ลดจำนวนคน">−</button>
+        <output id="peopleOut" aria-live="polite">15</output>
+        <button type="button" id="plus" aria-label="เพิ่มจำนวนคน">+</button>
+      </div>
     </div>
-    <div class="stepper">
-      <button type="button" id="minus" aria-label="ลดจำนวนคน">−</button>
-      <output id="peopleOut" aria-live="polite">15</output>
-      <button type="button" id="plus" aria-label="เพิ่มจำนวนคน">+</button>
-    </div>
-  </div>
-</header>
-
-<main class="wrap">
+  </header>
   <section class="results" aria-labelledby="resultsHead">
     <h2 id="resultsHead">ผลโหวตตอนนี้</h2>
     <div id="results"><p class="results-empty">กำลังโหลด…</p></div>
   </section>
+</div>
 
+<main class="wrap">
   <section class="villas">
     <h2 class="villas-head" id="villasHead"></h2>
     <div id="villaList"></div>
+  </section>
+
+  <section class="suggest" aria-labelledby="suggestHead">
+    <div class="suggest-form">
+      <h2 id="suggestHead">มีบ้านอื่นอยากแนะนำ?</h2>
+      <p>วางลิงก์หรือพิมพ์ชื่อบ้าน เดี๋ยวคนจัดทริปจะไปเช็คแล้วเพิ่มเข้าโหวตให้</p>
+      <label for="sgText">ลิงก์หรือชื่อบ้าน</label>
+      <input id="sgText" type="text" maxlength="500" placeholder="https://… หรือ ชื่อบ้าน">
+      <label for="sgNote">ทำไมถึงชอบ (ไม่ใส่ก็ได้)</label>
+      <input id="sgNote" type="text" maxlength="300" placeholder="เช่น สระใหญ่ ใกล้ร้านอาหาร">
+      <button type="button" id="sgSend">ส่งบ้านที่แนะนำ</button>
+      <p class="sg-hint" id="sgHint">ใช้ชื่อเล่นจากช่องด้านล่างจอ</p>
+    </div>
+    <div class="suggest-list">
+      <h3 id="sgCount">บ้านที่เพื่อนแนะนำ</h3>
+      <ul id="sgList"><li class="results-empty">ยังไม่มีใครแนะนำ</li></ul>
+    </div>
   </section>
 
   <footer id="note"></footer>
@@ -494,6 +573,75 @@ footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
     }
   }
 
+  let suggestions = [];
+
+  function linkify(text) {
+    if (/^https?:\/\/\S+$/i.test(text)) {
+      let label = text;
+      try {
+        const u = new URL(text);
+        const path = decodeURIComponent(u.pathname).replace(/\/$/, "");
+        label = u.hostname.replace(/^www\./, "") + (path.length > 40 ? path.slice(0, 40) + "…" : path);
+      } catch {}
+      return `<a href="${esc(text)}" target="_blank" rel="noopener nofollow">${esc(label)}</a>`;
+    }
+    return esc(text);
+  }
+
+  function renderSuggestions() {
+    $("sgCount").textContent = suggestions.length
+      ? `บ้านที่เพื่อนแนะนำ ${suggestions.length} หลัง` : "บ้านที่เพื่อนแนะนำ";
+    $("sgList").innerHTML = suggestions.length
+      ? suggestions.slice().reverse().map((x) => `
+        <li>
+          <div class="sg-text">${linkify(x.text)}</div>
+          ${x.note ? `<p class="sg-note">${esc(x.note)}</p>` : ""}
+          <span class="sg-by">แนะนำโดย ${esc(x.name)}</span>
+        </li>`).join("")
+      : '<li class="results-empty">ยังไม่มีใครแนะนำ ถ้าเจอบ้านเด็ดก็ส่งมาได้เลย</li>';
+  }
+
+  async function loadSuggestions() {
+    try {
+      const r = await fetch(`/api/suggestions?trip=${encodeURIComponent(data.trip.id)}`, { cache: "no-store" });
+      if (!r.ok) throw new Error();
+      suggestions = (await r.json()).suggestions || [];
+      renderSuggestions();
+    } catch {
+      $("sgList").innerHTML = '<li class="results-empty">โหลดรายการแนะนำไม่ได้ ลองรีเฟรชหน้าอีกครั้ง</li>';
+    }
+  }
+
+  async function sendSuggestion() {
+    const name = $("name").value.trim();
+    const text = $("sgText").value.trim();
+    const note = $("sgNote").value.trim();
+    if (!name) { $("name").focus(); toast("ใส่ชื่อเล่นที่ช่องด้านล่างก่อน"); return; }
+    if (!text) { $("sgText").focus(); toast("ใส่ลิงก์หรือชื่อบ้านก่อน"); return; }
+    const btn = $("sgSend");
+    btn.disabled = true;
+    btn.textContent = "กำลังส่ง…";
+    try {
+      const r = await fetch(`/api/suggestions?trip=${encodeURIComponent(data.trip.id)}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, text, note }),
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(j.error || "ส่งไม่สำเร็จ");
+      store.set("villa-vote-name", name);
+      $("sgText").value = "";
+      $("sgNote").value = "";
+      toast("ส่งบ้านที่แนะนำแล้ว ขอบคุณ " + name);
+      await loadSuggestions();
+    } catch (e) {
+      toast(e.message || "ส่งไม่สำเร็จ ลองอีกครั้ง");
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "ส่งบ้านที่แนะนำ";
+    }
+  }
+
   async function init() {
     data = await (await fetch("villas.json", { cache: "no-store" })).json();
     $("title").textContent = data.trip.title;
@@ -520,11 +668,14 @@ footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
       else { dirty = true; updateDock(); }
     });
     $("submit").addEventListener("click", submit);
+    $("sgSend").addEventListener("click", sendSuggestion);
+    $("sgText").addEventListener("keydown", (e) => { if (e.key === "Enter") sendSuggestion(); });
+    $("sgNote").addEventListener("keydown", (e) => { if (e.key === "Enter") sendSuggestion(); });
 
     renderVillas();
     updateDock();
-    await loadVotes(true);
-    setInterval(() => { if (!document.hidden) loadVotes(); }, 15000);
+    await Promise.all([loadVotes(true), loadSuggestions()]);
+    setInterval(() => { if (!document.hidden) { loadVotes(); loadSuggestions(); } }, 15000);
   }
 
   init().catch(() => {
