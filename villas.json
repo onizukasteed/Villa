@@ -1,226 +1,236 @@
 {
   "trip": {
-    "id": "khaoyai-dec69",
-    "title": "เขาใหญ่กับ CG Alumni 🇹🇭 🇨🇳",
+    "id": "dec69-v2",
+    "title": "ทริป CG Alumni 🇹🇭 🇨🇳",
     "date": "เสาร์ 12 ธ.ค. 69",
-    "priceNote": "ราคาคืนวันเสาร์ 12 ธ.ค. เช็คเมื่อ 2 พ.ย. 69",
+    "subtitle": "เปลี่ยนแผนหนีรถติดเขาใหญ่ (ชนงาน Big Mountain) มาเลือกบ้านใหม่กัน",
+    "priceNote": "ราคาคืนวันเสาร์ 12 ธ.ค. เช็คเมื่อ 6 พ.ย. 69 เวลาขับรถเป็นค่าประมาณจากกรุงเทพฯ ไม่รวมรถติด",
     "defaultPeople": 15
   },
   "villas": [
     {
-      "id": "CITY-1294",
-      "nickname": "สายคุ้ม",
-      "name": "CITY-1294",
-      "url": "https://poolvillacity.co.th/CITY-1294",
-      "price": 20900,
-      "basePeople": 16,
-      "maxPeople": 24,
+      "id": "CITY-698",
+      "province": "นครนายก",
+      "area": "อ.เมืองนครนายก",
+      "drive": "~1.5–2 ชม.",
+      "nickname": "สายผจญภัย",
+      "name": "CITY-698",
+      "url": "https://poolvillacity.co.th/CITY-698",
+      "price": 18600,
+      "basePeople": 20,
+      "maxPeople": 20,
       "extraPerPerson": 500,
       "bedrooms": 6,
-      "bathrooms": 7,
+      "bathrooms": 5,
       "status": "ว่าง",
+      "activities": [
+        "🛶 ล่องแก่ง",
+        "🛝 สไลเดอร์",
+        "🏓 ปิงปอง",
+        "🎱 โต๊ะพูล",
+        "🎤 คาราโอเกะ"
+      ],
       "photos": [
-        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/ab950491-a412-4839-9959-ad02dc809c0d_1765436067000.webp",
-        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/41740511-0542-462e-8595-8a00e1d238ec_1765436067000.webp",
-        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/f18e3da4-681b-4cfe-a0d7-b8bd837dec4e_1765436067000.webp",
-        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/32222d9d-7202-4f46-89f5-43c1e820128a_1765436067000.webp",
-        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/0dccffdd-2a5b-4ac9-ad26-7448b72c571b_1765436067000.webp"
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/b388ac08-a383-4ae0-8f41-84b1fdb88cb6_1779083387000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/08e9ab12-9349-42ea-8967-e60e35c93448_1779083387000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/bb7f905a-3af4-495c-89a2-eec671860b0c_1779083387000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/a6d1a76a-a3e3-480c-9777-73efbd0edbb1_1779083387000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/c2c43bff-d84b-401a-934e-a5574bdc4ef2_1779083387000.webp"
       ],
       "highlights": [
-        "ห้องนอนมีอ่างชมวิว 3 ห้อง",
-        "สระ 7x4 ม. มีสไลเดอร์ + โต๊ะพูล",
-        "ฟรีน้ำแข็ง ถ่าน น้ำดื่ม กาแฟ",
-        "ใกล้ Premium Outlet และฟาร์มโชคชัย"
+        "สระน้ำเกลือ 4x10 ม. มีสไลเดอร์",
+        "ใกล้แก่งเทียม 700 ม. เขื่อนขุนด่านฯ 2.8 กม. น้ำตกนางรอง 4.1 กม.",
+        "รีวิว 5.0 (10 รีวิว) มีคนเล่าว่าที่พักจัดล่องแก่งให้",
+        "ฟรีน้ำแข็ง น้ำดื่ม ถ่าน"
       ],
-      "warnings": []
+      "warnings": [
+        "ล่องแก่งต้องถามที่พักก่อนว่ารวมหรือจ่ายเพิ่ม"
+      ]
     },
     {
-      "id": "HB-237",
-      "nickname": "สายสวย นอร์ดิก",
-      "name": "HB-237",
-      "url": "https://poolvillacity.co.th/HB-237",
-      "price": 19900,
-      "basePeople": 15,
-      "maxPeople": 21,
+      "id": "CITY-1514",
+      "province": "นครนายก",
+      "area": "อ.เมืองนครนายก",
+      "drive": "~1.5–2 ชม.",
+      "nickname": "สายประหยัด",
+      "name": "CITY-1514",
+      "url": "https://poolvillacity.co.th/CITY-1514",
+      "price": 15900,
+      "basePeople": 20,
+      "maxPeople": 20,
+      "extraPerPerson": 0,
+      "bedrooms": 5,
+      "bathrooms": 6,
+      "status": "ว่าง",
+      "activities": [
+        "🛝 สไลเดอร์",
+        "🎱 โต๊ะพูล",
+        "🎤 คาราโอเกะ"
+      ],
+      "photos": [
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/061b8aa0-8fbb-4fcb-b423-7e5d25896ba6_1775219538000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/759cb0af-a084-4c17-9c97-f98a3414f2cd_1775219538000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/9209190e-d673-4df1-86e2-6cb3e2d36407_1775219538000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/734bcfcd-3499-4782-b309-ded92d86da8a_1775221297000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/ad4ba4e3-d6c8-4118-a3ca-5a27251ed0ad_1775221297000.webp"
+      ],
+      "highlights": [
+        "ห้องน้ำในห้องนอนครบทุกห้อง",
+        "ใกล้น้ำตกนางรอง และแก่งสามชั้น 3.3 กม.",
+        "7-11 Lotus’s Big C ไม่เกิน 1 กม.",
+        "จอดรถได้ 9–10 คัน"
+      ],
+      "warnings": [
+        "สระเล็ก 3x7 ม. ระบบคลอรีน"
+      ]
+    },
+    {
+      "id": "CITY-1063",
+      "province": "นครนายก",
+      "area": "อ.เมืองนครนายก",
+      "drive": "~1.5–2 ชม.",
+      "nickname": "สายมินิมอลขาว",
+      "name": "CITY-1063",
+      "url": "https://poolvillacity.co.th/CITY-1063",
+      "price": 19800,
+      "basePeople": 12,
+      "maxPeople": 15,
       "extraPerPerson": 500,
       "bedrooms": 4,
       "bathrooms": 5,
       "status": "ว่าง",
+      "activities": [
+        "🛁 จากุซซี่",
+        "🎱 โต๊ะพูล"
+      ],
       "photos": [
-        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/c8205ba5-8c8d-4477-81f2-28abd1104d53_1788086987974.webp",
-        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/cadd2b8f-ddc8-466a-a378-bac8b4e45145_1788086987986.webp",
-        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/fc0d9c60-dee8-4398-a927-b83eb686313a_1788086988010.webp",
-        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/de6ba90e-77d7-492b-ab0a-94a33ad1e3ad_1788086988259.webp",
-        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/0442eea1-7496-4d91-a785-d4603e42ffd4_1788086988319.webp"
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/9a595736-32a7-48cc-aac7-1bfd3e6253fa_1766067012000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/9413cfcb-e328-4494-b25f-8d7284293983_1766067012000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/98526431-e3ce-461a-ad8a-f988a6df31b9_1766067012000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/4da3b218-0e08-41f4-849c-43046b47a697_1746515067000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/a336db88-25d3-4e91-8d17-cc1a6a15dbf0_1746515067000.webp"
       ],
       "highlights": [
-        "สระน้ำเกลือ 4x12 ม. สไลเดอร์ยาว 16 ม.",
-        "มีดาดฟ้า บ้าน 2 ชั้น 550 ตร.ม.",
-        "Nintendo Switch บอร์ดเกม คาราโอเกะ JBL",
-        "TV 75 นิ้ว และ Smart TV ทุกห้องนอน"
+        "บ้านขาวโทนมินิมอล ถ่ายรูปสวย",
+        "สระน้ำเกลือ 3.5x7 ม. + จากุซซี่",
+        "ฟรีอาหารเช้าวันเสาร์ ไข่ดาว ไส้กรอก ขนมปัง",
+        "รปภ. ดูแล 24 ชม."
       ],
       "warnings": [
-        "จองแล้วยกเลิก คืนเงิน หรือลดจำนวนคนไม่ได้"
+        "ต่อคนแพงสุดในกลุ่มนี้ รับสูงสุด 15 คน",
+        "ไม่รับสัตว์เลี้ยง"
       ]
     },
     {
-      "id": "HB-183",
-      "nickname": "สายปาร์ตี้",
-      "name": "HB-183",
-      "url": "https://poolvillacity.co.th/HB-183",
-      "price": 24000,
-      "basePeople": 15,
-      "maxPeople": 40,
-      "extraPerPerson": 500,
-      "bedrooms": 6,
-      "bathrooms": 7,
-      "status": "ว่าง",
-      "photos": [
-        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/0175f2d2-b1d8-4d61-9d13-93008bf8aedf_1787980735983.webp",
-        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/c5901c88-8f4f-4ee9-93c9-efe66e9f2195_1787980735955.webp",
-        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/bec66af6-e389-40ad-bf8b-05206e51a262_1787980735976.webp",
-        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/865802f1-0dd5-4c07-90da-de5a2e07d8a6_1787980736476.webp",
-        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/c54a6b3e-31fc-4a62-acb1-e71819664d87_1787980736442.webp"
-      ],
-      "highlights": [
-        "สระน้ำเกลือ 8x10 ม. จากุซซี่ สไลเดอร์",
-        "ฟรีรถ ATV ขับได้ถึงเช็คเอาท์",
-        "ตู้เกม Arcade โต๊ะพูล โต๊ะบอล แอร์ฮอกกี้",
-        "เปิดเพลงได้ 24 ชม. ฟรีข้าวต้มเช้า"
-      ],
-      "warnings": []
-    },
-    {
-      "id": "MONTENEO-B",
-      "nickname": "สายวิวภูเขา",
-      "name": "Monteneo Zone B",
-      "url": "https://www.besthavenkhaoyai.com/Monteneo_Und_Pool_Villa_Khao_Yai_-_Zone_B/6457eeca3108c2001a89064f",
-      "price": 25900,
-      "basePeople": 16,
-      "maxPeople": 25,
-      "extraPerPerson": 600,
-      "bedrooms": 7,
-      "bathrooms": 8,
-      "status": "ยังไม่ได้เช็คคิว",
-      "photos": [
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/1z-z1650810684598.webp",
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/6z-z1553258973808.webp",
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/10z-z553831915395.webp",
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/13z-z248861133349.webp",
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/15z-z227871222298.webp"
-      ],
-      "highlights": [
-        "เหมา 2 หลัง บนเนินเขา วิวภูเขา 180°",
-        "สระน้ำเกลือ จากุซซี่ สระเด็ก สไลเดอร์",
-        "แต่งสไตล์คาเฟ่ มุมถ่ายรูปเยอะ",
-        "คาราโอเกะ JBL โต๊ะพูล ฟรีอาหารเช้า"
-      ],
-      "warnings": [
-        "งดเสียงดังนอกบ้านหลัง 22:00",
-        "ห่างอุทยานฯ 28 กม."
-      ]
-    },
-    {
-      "id": "VENEZIA",
-      "nickname": "สายยุโรป",
-      "name": "Venezia Villa",
-      "url": "https://www.besthavenkhaoyai.com/Venezia_Und_Villa_Khao_Yai/5f89005cb6b4bd0019bf4333",
-      "price": 20900,
-      "basePeople": 19,
-      "maxPeople": 27,
-      "extraPerPerson": 1000,
-      "tiers": [
-        {
-          "upTo": 19,
-          "price": 20900,
-          "label": "เปิด 5 ห้องนอน"
-        },
-        {
-          "upTo": 25,
-          "price": 25900,
-          "label": "เปิด 6 ห้องนอน"
-        }
-      ],
-      "bedrooms": 6,
-      "bathrooms": 7,
-      "status": "ยังไม่ได้เช็คคิว",
-      "photos": [
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/newz-z679955325624.webp",
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/2z-z1327022162582.webp",
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/3z-z644093963523.webp",
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/5z-z1467635254353.webp",
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/7z-z486733535053.webp"
-      ],
-      "highlights": [
-        "สไตล์ทัสคานี มีสะพานเวนิสจำลอง",
-        "สระน้ำอุ่น + จากุซซี่ 2 อ่าง (ชั้นล่างและระเบียง)",
-        "คาราโอเกะ JBL โต๊ะพูล TV 75 นิ้วริมสระ",
-        "ฟรีอาหารเช้า ใกล้ฟาร์มโชคชัย 6.5 กม."
-      ],
-      "warnings": [
-        "สระเล็กกว่าหลังอื่น (3.5x7 ม.)",
-        "มัดจำ 60% งดเสียงดังนอกบ้านหลัง 23:00"
-      ]
-    },
-    {
-      "id": "MARINE",
-      "nickname": "สายสไลเดอร์ยักษ์",
-      "name": "The Marine Villa",
-      "url": "https://www.besthavenkhaoyai.com/The_Marine_Villa_Khao_Yai/5fbce293374db80012ee05fa",
-      "price": 22400,
-      "basePeople": 20,
-      "maxPeople": 28,
-      "extraPerPerson": 500,
-      "bedrooms": 7,
-      "bathrooms": 7,
-      "status": "ยังไม่ได้เช็คคิว",
-      "photos": [
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/The-Marine-Villa-Khao-Yai-1z-z637993825625.webp",
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/3z-z1515282063992.webp",
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/2z-z392760111171.webp",
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/16z-z180809738916.webp",
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/12z-z1124576478756.webp"
-      ],
-      "highlights": [
-        "สไลเดอร์ยาว 42 ม.",
-        "สระน้ำเกลือ 6x12 ม. มีมวยทะเล",
-        "คาราโอเกะ โต๊ะสนุ๊ก ฟรีข้าวต้มเช้า",
-        "ราคารวม 20 คน เช็คเอาท์ 12:00"
-      ],
-      "warnings": [
-        "แยกเป็น 5 หลัง ห้องนั่งเล่นและครัวอยู่หลังใหญ่หลังเดียว",
-        "โอนแล้วคืนเงินหรือเปลี่ยนวันไม่ได้"
-      ]
-    },
-    {
-      "id": "MONTENEO-C",
-      "nickname": "สายคลับเฮ้าส์",
-      "name": "Monteneo Zone C",
-      "url": "https://www.besthavenkhaoyai.com/Monteneo_Und_Pool_Villa_Khao_Yai_-_Zone_C/6555c30c1a1f0e001ad911ed",
-      "price": 18900,
-      "basePeople": 17,
-      "maxPeople": 25,
-      "extraPerPerson": 600,
+      "id": "CITY-1187",
+      "province": "นครปฐม",
+      "area": "อ.เมืองนครปฐม",
+      "drive": "~1 ชม.",
+      "nickname": "สายริมทะเลสาบ",
+      "name": "CITY-1187",
+      "url": "https://poolvillacity.co.th/CITY-1187",
+      "price": 9900,
+      "basePeople": 12,
+      "maxPeople": 17,
+      "extraPerPerson": 350,
       "bedrooms": 5,
-      "bathrooms": 6,
-      "status": "ยังไม่ได้เช็คคิว",
+      "bathrooms": 5,
+      "status": "ว่าง",
+      "activities": [
+        "🎣 ตกปลาฟรี",
+        "🎤 คาราโอเกะ",
+        "🍖 BBQ",
+        "🐶 พาสัตว์เลี้ยงได้"
+      ],
       "photos": [
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/0(0)z-z1513591585595.webp",
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/0(1)z-z1582632985741.webp",
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/0(3)z-z363074464086.webp",
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/3(1)z-z919860551338.webp",
-        "https://itp1.itopfile.com/ImageServer/4d5c30c1a89b9b67/805/0/1(2)z-z254842227434.webp"
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/84e8657e-3b4d-4ad4-b145-cc0a50d85583_1757510697000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/9a521046-71eb-4e27-b44c-4cd624b26a58_1757510697000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/9ba688e1-a54b-46d7-8706-5572cd4dc9d9_1757510697000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/8584f1d5-bd10-4aae-8103-838c050e52ce_1757510697000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/bac6ca7e-bfb2-4e24-8b31-3ce2d15e4799_1757510697000.webp"
       ],
       "highlights": [
-        "เหมาทั้งโซน มีคลับเฮ้าส์นั่งเล่นขนาดใหญ่",
-        "สระน้ำเกลือ 8.5x4 ม. จากุซซี่ สไลเดอร์",
-        "คาราโอเกะ JBL โต๊ะพูล Smart TV",
-        "ฟรีอาหารเช้า ใกล้ Tellus Cafe 1.6 กม."
+        "บ้านไม้ริมทะเลสาบน้ำจืด สวน 1 ไร่ มีศาลาริมน้ำ",
+        "ตกปลาธรรมชาติได้ฟรี",
+        "ครัว 2 ห้อง เช็คเอาท์ 12:00",
+        "ใกล้กรุงเทพฯ ที่สุดในตัวเลือก"
       ],
       "warnings": [
-        "งดเสียงดังนอกบ้านหลัง 22:00",
-        "ห้องนอน 3 ห้องน้ำอยู่นอกห้อง ไม่ล้างจานคิด 600"
+        "สระเล็ก (ประมาณ 5x4 ม.)"
       ]
+    },
+    {
+      "id": "CITY-1457",
+      "province": "ราชบุรี",
+      "area": "อ.เมืองราชบุรี",
+      "drive": "~1.5–2 ชม.",
+      "nickname": "สายบ้านเล็กคุ้มสุด",
+      "name": "CITY-1457",
+      "url": "https://poolvillacity.co.th/CITY-1457",
+      "price": 8300,
+      "basePeople": 10,
+      "maxPeople": 15,
+      "extraPerPerson": 300,
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "status": "ว่าง",
+      "activities": [
+        "🛝 สไลเดอร์",
+        "🎱 สนุ๊กเกอร์",
+        "👶 สระเด็ก"
+      ],
+      "photos": [
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/56ed83ab-941d-40a9-8a32-d8fe5adfbfea_1773495473000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/7f87af0a-9951-4ce5-819b-0f285486ea24_1773495473000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/98398cf5-dcc8-4b2d-9fb5-f5010fa67566_1773495473000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/a7ea09c3-abf9-49f9-8581-f71e13b68b59_1773495473000.webp",
+        "https://sgp1.digitaloceanspaces.com/villapaza-spaces/public/images/house/c85fb1e4-d36e-4eca-a593-268323eb54ab_1773495473000.webp"
+      ],
+      "highlights": [
+        "ถูกที่สุดในตัวเลือก",
+        "สระ 3.5x6 ม. สไลเดอร์ + สระเด็ก",
+        "โต๊ะสนุ๊กเกอร์ ห่วงยางเป็ดเหลืองเพียบ"
+      ],
+      "warnings": [
+        "มีแค่ 3 ห้องนอน ไป 15 คนจะแน่นมาก",
+        "หน้าเว็บไม่บอกที่เที่ยวใกล้เคียง"
+      ]
+    }
+  ],
+  "parked": [
+    {
+      "id": "FB-RIVER",
+      "province": "ฉะเชิงเทรา",
+      "area": "",
+      "drive": "",
+      "nickname": "สายวิวแม่น้ำ",
+      "name": "Peacever Pool Villa",
+      "url": "https://www.facebook.com/share/p/1A9Nnv8kYZ/",
+      "price": null,
+      "basePeople": 12,
+      "maxPeople": 12,
+      "extraPerPerson": 0,
+      "bedrooms": 5,
+      "bathrooms": 5,
+      "status": "ยังไม่คอนเฟิร์มคิว",
+      "activities": [
+        "🏊 สระในร่ม",
+        "🎱 พูล 8 ฟุต",
+        "🎤 คาราโอเกะ",
+        "🍖 หมูกระทะ/BBQ"
+      ],
+      "photos": [],
+      "highlights": [
+        "สระว่ายน้ำในร่ม",
+        "ระเบียงยักษ์ 80 ตร.ม. + ชุด BBQ หมูกระทะ 12 ที่",
+        "อ่างอาบน้ำวิวแม่น้ำ ระเบียงทุกห้องนอน",
+        "ห้องสำหรับผู้สูงอายุ มีทางรถเข็น"
+      ],
+      "warnings": [
+        "รับได้ 12 คน",
+        "ยังไม่รู้ราคา"
+      ],
+      "phone": "091 781 5553"
     }
   ]
 }
