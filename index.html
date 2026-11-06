@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>เลือกบ้านเขาใหญ่ | CG Alumni</title>
-<meta property="og:title" content="เลือกบ้านพูลวิลล่าเขาใหญ่ เข้ามาโหวตกัน">
+<title>เลือกบ้าน | ทริป CG Alumni</title>
+<meta property="og:title" content="เลือกบ้านพูลวิลล่า ทริป CG Alumni เข้ามาโหวตกัน">
 <meta property="og:description" content="ดูบ้าน เทียบราคาหารต่อคน แล้วโหวตได้หลายหลัง">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,6 +75,7 @@ button, input { font: inherit; color: inherit; }
   border-radius: 6px;
 }
 .hero p { color: var(--moss); margin: 16px 0 0; max-width: 34em; }
+.hero p.subtitle { color: var(--ink); font-weight: 500; }
 
 /* People stepper */
 .people {
@@ -291,6 +292,30 @@ footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
   .suggest { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; padding: 28px 32px; }
 }
 
+/* Province + activities */
+.where { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 10px; }
+.prov {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--prov, var(--pool)); color: #fff;
+  font: 600 1.15rem/1 var(--display); padding: 8px 12px 9px; border-radius: 8px;
+}
+.prov small { font: 400 .85rem var(--body); opacity: .9; margin-left: 4px; }
+.drive { color: var(--moss); font-size: .92rem; }
+.prov.unknown { background: var(--line); color: var(--ink); }
+.acts { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.acts li {
+  background: var(--sun-soft); border-radius: 99px; padding: 4px 12px;
+  font-weight: 500; font-size: .95rem;
+}
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; }
+.filters button {
+  min-height: 40px; padding: 0 14px; border-radius: 99px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--paper); font-weight: 500;
+}
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--mist); border-color: var(--ink); }
+.bar-row .label small { color: var(--moss); font-weight: 400; margin-left: 6px; }
+.price .tbd { font: 600 1.6rem/1 var(--display); }
+
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
@@ -300,8 +325,9 @@ footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
 
 <div class="wrap top">
   <header class="hero">
-    <h1 id="title">เขาใหญ่กับ CG Alumni 🇹🇭 🇨🇳</h1>
+    <h1 id="title">ทริป CG Alumni 🇹🇭 🇨🇳</h1>
     <span class="date" id="date"></span>
+    <p class="subtitle" id="subtitle" hidden></p>
     <p>ดูบ้านทุกหลังแล้วกดเลือกหลังที่โอเค เลือกได้มากกว่า 1 หลัง ใส่ชื่อเล่นแล้วกดส่งโหวต เปลี่ยนใจทีหลังได้ด้วยชื่อเดิม</p>
   
     <div class="people">
@@ -325,6 +351,7 @@ footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
 <main class="wrap">
   <section class="villas">
     <h2 class="villas-head" id="villasHead"></h2>
+    <div class="filters" id="filters" role="group" aria-label="กรองตามจังหวัด"></div>
     <div id="villaList"></div>
   </section>
 
@@ -377,6 +404,7 @@ footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
   }
 
   function perPerson(v, n) {
+    if (v.price == null && !(v.tiers && v.tiers.length)) return { unknown: true, over: n > v.maxPeople };
     const t = priceFor(v, n);
     const total = t.price + Math.max(0, n - t.base) * v.extraPerPerson;
     return { ...t, total, per: Math.ceil(total / n / 10) * 10, over: n > v.maxPeople };
@@ -406,12 +434,34 @@ footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
     const top = rows[0].names.length;
     box.innerHTML = rows.map(({ v, names }) => `
       <div class="bar-row${names.length && names.length === top ? " lead" : ""}">
-        <span class="label">${esc(v.nickname)}</span>
+        <span class="label">${esc(v.nickname)}<small>${esc(v.province || "ไม่ระบุจังหวัด")}</small></span>
         <span class="count">${names.length} เสียง</span>
         <div class="bar"><span style="width:${(names.length / votes.length) * 100}%"></span></div>
         ${names.length ? `<span class="voters">${names.map(esc).join(", ")}</span>` : ""}
       </div>`).join("") +
       `<p class="results-empty">โหวตแล้ว ${votes.length} คน</p>`;
+  }
+
+  const PROV_COLORS = ["#0C7C7C", "#B4521C", "#6B3FA0", "#2459B8", "#8A6A00", "#B02A5B"];
+  let provFilter = "";
+  function provColor(name) {
+    const list = [...new Set(data.villas.map((v) => v.province).filter(Boolean))];
+    const i = list.indexOf(name);
+    return i < 0 ? "" : PROV_COLORS[i % PROV_COLORS.length];
+  }
+
+  function renderFilters() {
+    const counts = {};
+    data.villas.forEach((v) => { const k = v.province || "ยังไม่ระบุ"; counts[k] = (counts[k] || 0) + 1; });
+    const keys = Object.keys(counts);
+    if (keys.length < 2) { $("filters").innerHTML = ""; return; }
+    $("filters").innerHTML = [`<button type="button" data-prov="" aria-pressed="${!provFilter}">ทั้งหมด ${data.villas.length}</button>`]
+      .concat(keys.map((k) => `<button type="button" data-prov="${esc(k)}" aria-pressed="${provFilter === k}">${esc(k)} ${counts[k]}</button>`)).join("");
+    $("filters").querySelectorAll("button").forEach((b) => b.addEventListener("click", () => {
+      provFilter = b.dataset.prov;
+      renderFilters();
+      renderVillas();
+    }));
   }
 
   function cardHTML(v) {
@@ -429,22 +479,30 @@ footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
             <span class="photo-count">1/${v.photos.length}</span>` : ""}
         </div>
         <div class="villa-body">
+          <div class="where">
+            ${v.province
+              ? `<span class="prov" style="--prov:${provColor(v.province)}">📍 ${esc(v.province)}${v.area ? `<small>${esc(v.area)}</small>` : ""}</span>`
+              : `<span class="prov unknown">📍 ยังไม่ระบุจังหวัด</span>`}
+            ${v.drive ? `<span class="drive">🚗 ${esc(v.drive)} จากกรุงเทพฯ</span>` : ""}
+          </div>
           <div class="villa-top">
             <h3>${esc(v.nickname)}</h3>
             <span class="code">${esc(v.name)}</span>
           </div>
           <div class="status ${known ? "ok" : "unknown"}">${esc(v.status || "")}</div>
-          <div class="price">
+          ${p.unknown ? `<div class="price"><span class="tbd">ยังไม่รู้ราคา</span></div>
+          <p class="price-sub">ต้องทักถามเจ้าของบ้านก่อน</p>` : `<div class="price">
             <strong>฿${fmt(p.per)}</strong><span class="per">ต่อคน</span>
           </div>
           <p class="price-sub">${p.over
             ? `<span class="over">รับได้สูงสุด ${v.maxPeople} คน เกินไป ${people - v.maxPeople} คน</span>`
-            : `รวม ฿${fmt(p.total)} สำหรับ ${people} คน<br>${p.label ? p.label + " " : ""}ราคานี้รวม ${p.base} คน เกินเพิ่มคนละ ${fmt(v.extraPerPerson)}`}</p>
+            : `รวม ฿${fmt(p.total)} สำหรับ ${people} คน<br>${p.label ? p.label + " " : ""}ราคานี้รวม ${p.base} คน ${v.extraPerPerson ? `เกินเพิ่มคนละ ${fmt(v.extraPerPerson)}` : "ไม่คิดค่าเสริม"}`}</p>`}
           <ul class="facts">
             <li><b>${v.bedrooms}</b>ห้องนอน</li>
             <li><b>${v.bathrooms}</b>ห้องน้ำ</li>
             <li><b>${v.maxPeople}</b>คนสูงสุด</li>
           </ul>
+          ${v.activities && v.activities.length ? `<ul class="acts" aria-label="กิจกรรม">${v.activities.map((a) => `<li>${esc(a)}</li>`).join("")}</ul>` : ""}
           <ul class="highlights">${v.highlights.map((h) => `<li>${esc(h)}</li>`).join("")}</ul>
           ${v.warnings && v.warnings.length ? `<div class="warn">${v.warnings.map((w) => `<p>⚠️ ${esc(w)}</p>`).join("")}</div>` : ""}
           <a class="link" href="${esc(v.url)}" target="_blank" rel="noopener">ดูรายละเอียดบนเว็บที่พัก</a>
@@ -455,7 +513,8 @@ footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
   }
 
   function renderVillas() {
-    $("villaList").innerHTML = data.villas.map(cardHTML).join("");
+    const list = data.villas.filter((v) => !provFilter || (v.province || "ยังไม่ระบุ") === provFilter);
+    $("villaList").innerHTML = list.map(cardHTML).join("");
     $("villaList").querySelectorAll(".villa").forEach(attachCard);
   }
 
@@ -646,7 +705,10 @@ footer { color: var(--moss); font-size: .85rem; padding: 8px 0 24px; }
     data = await (await fetch("villas.json", { cache: "no-store" })).json();
     $("title").textContent = data.trip.title;
     $("date").textContent = data.trip.date;
-    $("villasHead").textContent = `บ้านที่เล็งไว้ ${data.villas.length} หลัง`;
+    const provCount = new Set(data.villas.map((v) => v.province).filter(Boolean)).size;
+    $("villasHead").textContent = `บ้านที่เล็งไว้ ${data.villas.length} หลัง${provCount > 1 ? ` ใน ${provCount} จังหวัด` : ""}`;
+    if (data.trip.subtitle) { $("subtitle").textContent = data.trip.subtitle; $("subtitle").hidden = false; }
+    renderFilters();
     $("note").textContent = data.trip.priceNote + " ราคาอาจเปลี่ยน เช็คกับที่พักอีกครั้งก่อนโอน";
     document.title = `เลือกบ้าน ${data.trip.title}`;
 
